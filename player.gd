@@ -1,58 +1,58 @@
 extends CharacterBody2D
 
-const SPEED = 400.0
+# Константы движения
+const BASE_SPEED = 400.0
+const MAX_SPEED = 900.0
+const ACCEL_PER_JUMP = 50.0 # На сколько разгоняемся с каждым прыжком
 const JUMP_VELOCITY = -600.0
-const DASH_SPEED = 1200.0
-const DASH_DURATION = 0.2
+const DASH_FORCE = 1200.0
 
+var current_speed = BASE_SPEED
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_dashing = false
-var can_dash = true
-var last_direction = 1 # Чтобы дэшить даже если стоишь на месте
 
 func _physics_process(delta):
-	# Если мы в дэше, гравитация не работает, просто летим
-	if is_dashing:
-		return
-
-	# Гравитация
-	if not is_on_floor():
+	# Гравитация (если не в дэше)
+	if not is_dashing and not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Прыжок (Variable Jump - отпускаешь кнопку, прыжок обрывается)
+	# БАННИХОП: Сброс скорости при приземлении, если не прыгнул сразу
+	if is_on_floor():
+		# Если стоим на месте или просто бежим - плавно возвращаем базу
+		if current_speed > BASE_SPEED:
+			current_speed = move_toward(current_speed, BASE_SPEED, 20)
+	
+	# Прыжок и разгон
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		# Разгон!
+		current_speed = min(current_speed + ACCEL_PER_JUMP, MAX_SPEED)
+	
+	# Обрыв прыжка (Variable jump)
 	elif Input.is_action_just_released("jump") and velocity.y < 0:
-		velocity.y *= 0.5 # Обрываем прыжок (чем меньше число, тем короче прыжок)
+		velocity.y *= 0.5
 
 	# Движение
 	var direction = Input.get_axis("ui_left", "ui_right")
 	
-	if direction != 0:
-		last_direction = direction # Запоминаем направление
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED * 0.2) # Трение (торможение)
-
 	# Дэш
-	if Input.is_action_just_pressed("dash") and can_dash:
-		perform_dash(last_direction)
+	if Input.is_action_just_pressed("dash") and direction != 0:
+		dash(direction)
+	
+	if not is_dashing:
+		if direction != 0:
+			velocity.x = direction * current_speed
+		else:
+			# Трение
+			velocity.x = move_toward(velocity.x, 0, 50)
 
 	move_and_slide()
 
-func perform_dash(dir):
+func dash(dir):
 	is_dashing = true
-	can_dash = false
+	# Импульс без обнуления velocity
+	velocity.x = dir * DASH_FORCE
 	
-	var old_gravity = velocity.y
-	velocity.y = 0 # Чтобы не падать во время дэша
-	velocity.x = dir * DASH_SPEED
-	
-	await get_tree().create_timer(DASH_DURATION).timeout
-	
+	# Длительность рывка
+	await get_tree().create_timer(0.15).timeout 
 	is_dashing = false
-	velocity.y = old_gravity # Возвращаем гравитацию
-	
-	# Кулдаун дэша (можно настроить под себя)
-	await get_tree().create_timer(0.5).timeout 
-	can_dash = true
