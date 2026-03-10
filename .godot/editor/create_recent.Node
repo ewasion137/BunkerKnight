@@ -1,6 +1,10 @@
-Camera2D
-CollisionShape2D
+Label
+CanvasLayer
+WorldEnvironment
 ColorRect
+CollisionShape2D
 StaticBody2D
+TextureRect
+Camera2D
 Sprite2D
 CharacterBody2D
