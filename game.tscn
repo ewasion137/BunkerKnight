@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://bla61406tx6xk"]
+
+[ext_resource type="Script" uid="uid://cg58mmra1hlhc" path="res://player.gd" id="1_80nbo"]
+
+[sub_resource type="Gradient" id="Gradient_80nbo"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e2o6t"]
+gradient = SubResource("Gradient_80nbo")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_80nbo"]
+size = Vector2(1152, 106)
+
+[node name="World" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_80nbo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+position = Vector2(514, 249)
+texture = SubResource("GradientTexture2D_e2o6t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(514, 249)
+shape = SubResource("RectangleShape2D_e2o6t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 595)
+shape = SubResource("RectangleShape2D_80nbo")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D"]
+offset_left = -575.0
+offset_top = -54.0
+offset_right = 575.0
+offset_bottom = 53.0
