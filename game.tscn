@@ -28,6 +28,9 @@ shape = SubResource("RectangleShape2D_e2o6t")
 [node name="Sprite2D" type="Sprite2D" parent="Player/CollisionShape2D"]
 texture = SubResource("GradientTexture2D_e2o6t")
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(515, 249)
+
 [node name="Floor" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
@@ -35,6 +38,20 @@ position = Vector2(578.75, 595.5)
 shape = SubResource("RectangleShape2D_feb5d")
 
 [node name="ColorRect" type="ColorRect" parent="Floor"]
+offset_left = 5.0
+offset_top = 541.0
+offset_right = 1155.0
+offset_bottom = 648.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2(-4, 457)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor2"]
+position = Vector2(578.75, 595.5)
+shape = SubResource("RectangleShape2D_feb5d")
+
+[node name="ColorRect" type="ColorRect" parent="Floor2"]
 offset_left = 5.0
 offset_top = 541.0
 offset_right = 1155.0
