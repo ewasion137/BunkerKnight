@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://bla61406tx6xk"]
+[gd_scene load_steps=16 format=4 uid="uid://bla61406tx6xk"]
 
 [ext_resource type="Script" uid="uid://cg58mmra1hlhc" path="res://player.gd" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://c3l4fc0al1uvt" path="res://Tiles/Tiles/Tileset Inside.png" id="2_fc0e3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ds2p542td0fla" path="res://Tiles/Tiles/Trees.png" id="4_ryrav"]
 [ext_resource type="Texture2D" uid="uid://bccx4nyc7mm21" path="res://Tiles/Backgrounds/Sky.png" id="5_eow3j"]
 [ext_resource type="Texture2D" uid="uid://ck44yfr0jipi1" path="res://Tiles/Backgrounds/Clouds.png" id="6_j5wjh"]
+[ext_resource type="Texture2D" uid="uid://uhyp6inrgpvi" path="res://Tiles/Backgrounds/Rock Mountains.png" id="7_j5wjh"]
 [ext_resource type="Texture2D" uid="uid://7hfno4syaob1" path="res://Tiles/Backgrounds/Grass Mountains.png" id="7_vef74"]
 
 [sub_resource type="Gradient" id="Gradient_80nbo"]
@@ -493,25 +494,32 @@ tile_set = SubResource("TileSet_fc0e3")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_mirroring = Vector2(1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Background"]
+texture_repeat = 3
 position = Vector2(579, 296)
 texture = ExtResource("5_eow3j")
 
 [node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(579, 264)
 motion_scale = Vector2(1.2, 1.2)
-motion_mirroring = Vector2(1.2, 1.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+texture_repeat = 3
 position = Vector2(0, 32)
 texture = ExtResource("6_j5wjh")
 
-[node name="Grass" type="ParallaxLayer" parent="ParallaxBackground"]
+[node name="Rocks" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(578, 328)
 motion_scale = Vector2(1.4, 1.4)
-motion_mirroring = Vector2(1.4, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Rocks"]
+texture = ExtResource("7_j5wjh")
+
+[node name="Grass" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.6, 1.6)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Grass"]
+texture_repeat = 3
 position = Vector2(579, 296)
 texture = ExtResource("7_vef74")
