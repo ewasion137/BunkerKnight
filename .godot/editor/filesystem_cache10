@@ -1,8 +1,8 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1773216463
-game.tscn::PackedScene::3160428184360838684::1773165708::0::1::::<><><>0<>0<><>::uid://cg58mmra1hlhc::::res://player.gd<>uid://c3l4fc0al1uvt::::res://Tiles/Tiles/Tileset Inside.png<>uid://dn8qp8hxgqwyr::::res://Tiles/Tiles/Tileset Outside.png<>uid://ds2p542td0fla::::res://Tiles/Tiles/Trees.png
+::res://::1773231222
+game.tscn::PackedScene::3160428184360838684::1773231222::0::1::::<><><>0<>0<><>::uid://cg58mmra1hlhc::::res://player.gd<>uid://c3l4fc0al1uvt::::res://Tiles/Tiles/Tileset Inside.png<>uid://dn8qp8hxgqwyr::::res://Tiles/Tiles/Tileset Outside.png<>uid://ds2p542td0fla::::res://Tiles/Tiles/Trees.png<>uid://bccx4nyc7mm21::::res://Tiles/Backgrounds/Sky.png<>uid://ck44yfr0jipi1::::res://Tiles/Backgrounds/Clouds.png<>uid://uhyp6inrgpvi::::res://Tiles/Backgrounds/Rock Mountains.png<>uid://7hfno4syaob1::::res://Tiles/Backgrounds/Grass Mountains.png
 icon.svg::CompressedTexture2D::280305846776344859::1773140484::1773140494::1::::<><><>0<>0<>cc229cf559801fa7adf044b0b66e91e5<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-player.gd::GDScript::5257931508701251380::1773165865::0::1::::<>CharacterBody2D<><>0<>0<><>::
+player.gd::GDScript::5257931508701251380::1773224348::0::1::::<>CharacterBody2D<><>0<>0<><>::
 ::res://addons/::1773146427
 ::res://addons/godot-git-plugin/::1773146428
 git_plugin.gdextension::GDExtension::513244558941447072::1773146427::0::1::::<><><>0<>0<><>::
@@ -15,7 +15,7 @@ License.txt::TextFile::-1::1773153698::0::1::::<><><>0<>0<><>::
 ::res://Tiles/Backgrounds/::1773153698
 Clouds.png::CompressedTexture2D::5536400700504874902::1773153698::1773153698::1::::<><><>0<>0<>cc8e5d895d19a18ad8d45ba4efabe069<>res://.godot/imported/Clouds.png-c3e89bc92889c740949ca14d6e896c32.ctex::
 Grass Mountains.png::CompressedTexture2D::2260821221956206708::1773153698::1773153698::1::::<><><>0<>0<>0c5b0d93de4886352dca3d54da7ef53d<>res://.godot/imported/Grass Mountains.png-51941e325d8c5210d51978528e4572ef.ctex::
-Rock Mountains.png::CompressedTexture2D::1419713152969956590::1773153698::1773153698::1::::<><><>0<>0<>11de1d973476e39d782beb16daf95a97<>res://.godot/imported/Rock Mountains.png-c85bb1d0c6bd76be1b8bfc3eea157977.ctex::
+Rock Mountains.png::CompressedTexture2D::1419713152969956590::1773153698::1773231342::1::::<><><>0<>0<>11de1d973476e39d782beb16daf95a97<>res://.godot/imported/Rock Mountains.png-c85bb1d0c6bd76be1b8bfc3eea157977.ctex::
 Sky.png::CompressedTexture2D::2532376125347133952::1773153698::1773153698::1::::<><><>0<>0<>317989a5d33c4e21d3f647f37a7a1d31<>res://.godot/imported/Sky.png-2268a0105f80f312da8b488b18db61d1.ctex::
 ::res://Tiles/Tiles/::1773153698
 Tileset Inside.png::CompressedTexture2D::6762607009988074477::1773153698::1773153698::1::::<><><>0<>0<>d95b5336d2fca68d8330a4919b77023f<>res://.godot/imported/Tileset Inside.png-70625b32cce3795e53c8441adfb58d77.ctex::

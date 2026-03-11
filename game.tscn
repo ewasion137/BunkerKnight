@@ -494,30 +494,35 @@ tile_set = SubResource("TileSet_fc0e3")
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="Background" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-1, 57)
+motion_scale = Vector2(0, 0)
+motion_mirroring = Vector2(320, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Background"]
-texture_repeat = 3
-position = Vector2(579, 296)
+texture_repeat = 2
+position = Vector2(580, 79)
+scale = Vector2(7.41, 5)
 texture = ExtResource("5_eow3j")
+region_rect = Rect2(320, 320, 0, 0)
 
 [node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(579, 264)
-motion_scale = Vector2(1.2, 1.2)
+position = Vector2(578, 328)
+motion_scale = Vector2(0.2, 0.2)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Clouds"]
 texture_repeat = 3
-position = Vector2(0, 32)
 texture = ExtResource("6_j5wjh")
 
 [node name="Rocks" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(578, 328)
-motion_scale = Vector2(1.4, 1.4)
+motion_scale = Vector2(0.4, 0.4)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Rocks"]
+position = Vector2(1, -32)
 texture = ExtResource("7_j5wjh")
 
 [node name="Grass" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(1.6, 1.6)
+motion_scale = Vector2(0.6, 0.6)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Grass"]
 texture_repeat = 3
