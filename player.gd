@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 # Константы
 const BASE_SPEED = 400.0
-const MAX_SPEED = 900.0
+const MAX_SPEED = 1200.0
 const JUMP_VELOCITY = -600.0
 const SLAM_SPEED = 1200.0
 const MAX_COMBO = 7
@@ -33,10 +33,12 @@ func _physics_process(delta):
 		sprite.rotation_degrees = 0
 
 	# 3. Удар вниз
-	if Input.is_action_just_pressed("slam") and not is_on_floor():
+	if Input.is_action_just_pressed("slam") and not is_on_floor() and not is_dashing:
 		is_slamming = true
 		velocity.y = SLAM_SPEED
 		velocity.x = 0 
+		
+	
 
 	# 4. Приземление
 	if is_on_floor():
@@ -52,7 +54,7 @@ func _physics_process(delta):
 
 	# 6. Движение с ИНЕРЦИЕЙ
 	var direction = Input.get_axis("ui_left", "ui_right")
-	var current_speed = BASE_SPEED * (1.0 + (hop_combo * 0.05))
+	var current_speed = BASE_SPEED * (1.0 + (hop_combo * 0.1))
 
 	if direction != 0:
 		sprite.flip_h = (direction < 0)
@@ -64,6 +66,8 @@ func _physics_process(delta):
 
 	# Дэш
 	if Input.is_action_just_pressed("dash") and direction != 0 and not is_dashing:
+		# Если мы слэмим, слэм нужно прервать!
+		is_slamming = false 
 		dash(direction)
 
 	if not is_dashing:
