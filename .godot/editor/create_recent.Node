@@ -1,3 +1,7 @@
+Sprite2D
+ParallaxLayer
+ParallaxBackground
+Parallax2D
 TileMapLayer
 Label
 CanvasLayer
@@ -7,5 +11,4 @@ CollisionShape2D
 StaticBody2D
 TextureRect
 Camera2D
-Sprite2D
 CharacterBody2D
