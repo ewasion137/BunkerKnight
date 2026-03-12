@@ -1,10 +1,10 @@
+CanvasLayer
 Sprite2D
 ParallaxLayer
 ParallaxBackground
 Parallax2D
 TileMapLayer
 Label
-CanvasLayer
 WorldEnvironment
 ColorRect
 CollisionShape2D
